@@ -355,10 +355,14 @@ section[id] {
   list-style: none;
 }
 
-.trust-list span {
-  margin-right: 0.32rem;
-  color: var(--teal);
-  font-weight: 900;
+.trust-list .check-icon {
+  width: 0.42rem;
+  height: 0.72rem;
+  display: inline-block;
+  margin: 0 0.55rem 0.15rem 0.15rem;
+  border: solid var(--teal);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 .hero-visual {
@@ -683,10 +687,14 @@ section[id] {
 }
 
 .commitment-card li::before {
-  content: "✓";
+  content: "";
   position: absolute;
-  left: 0;
-  color: var(--teal);
+  top: 0.65em;
+  left: 0.2rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--teal);
 }
 
 .commitment-card a,
@@ -815,11 +823,14 @@ section[id] {
   color: var(--teal);
 }
 
-.contact-info address span span,
-.contact-info address a span {
-  width: 1.4rem;
+.contact-info .contact-label {
+  width: 4.2rem;
+  flex: 0 0 4.2rem;
   color: var(--teal);
-  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: left;
+  text-transform: uppercase;
 }
 
 .contact-info small {

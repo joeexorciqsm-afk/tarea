@@ -5,7 +5,7 @@
 **Materia:** Desarrollo de aplicaciones WEB  
 **Alumno:** Joel Humberto Solis Ramírez · **Matrícula:** 27437
 
-Este directorio organiza las evidencias de la actividad. La investigación completa, las respuestas de las partes I–XI, la comparación de frameworks, las 15 reflexiones y la bibliografía se encuentran en [`preguntas/investigacion-y-reflexion.html`](../preguntas/investigacion-y-reflexion.html).
+Este directorio organiza las evidencias de la actividad. La investigación completa, las respuestas, la tabla de frameworks, la reflexión final y la bibliografía se encuentran en el PDF [`preguntas/Investigacion_y_reflexion.pdf`](../preguntas/Investigacion_y_reflexion.pdf). El archivo [`preguntas/investigacion-y-reflexion.html`](../preguntas/investigacion-y-reflexion.html) conserva la versión editable.
 
 ## Mapa de Evidencias 1–7
 
@@ -17,9 +17,9 @@ Este directorio organiza las evidencias de la actividad. La investigación compl
 | 4 | Diseño responsivo | [`evidencia-4-responsive.md`](evidencia-4-responsive.md) | Mobile First, media queries y pruebas conceptuales en móvil, tableta y escritorio. |
 | 5 | Frameworks CSS | [`evidencia-5-frameworks.md`](evidencia-5-frameworks.md) | Comparación de Bootstrap, Tailwind CSS y Foundation, con justificación de Bootstrap. |
 | 6 | Implementación del proyecto | [`../index.html`](../index.html) | Página principal implementada; constituye la evidencia de integración visual y estructural. |
-| 7 | Evidencia visual de ejecución | [`../capturas/`](../capturas/) | Ruta destinada a capturas de las vistas de escritorio, tableta y móvil. |
+| 7 | Evidencia visual de ejecución | [`computadora.jpg`](../capturas/computadora.jpg), [`tableta.jpg`](../capturas/tableta.jpg) y [`telefono.jpg`](../capturas/telefono.jpg) | Capturas de página completa en computadora, tableta y teléfono, sin desplazamiento horizontal. |
 
-> **Nota sobre Evidencia 7:** este índice señala la carpeta `capturas/` solicitada para las imágenes de ejecución. Las capturas no se generan en esta fase de documentación textual.
+> **Evidencia 7 verificada:** las tres capturas fueron generadas después de comprobar carga de imágenes, funcionamiento del framework y ausencia de desbordamiento horizontal.
 
 ## Correspondencia con el documento completo
 
@@ -35,4 +35,4 @@ Este directorio organiza las evidencias de la actividad. La investigación compl
 1. Abrir el documento HTML completo en un navegador.
 2. Revisar la portada y el índice.
 3. Imprimir en tamaño carta; el documento incluye reglas `@page` y saltos por sección.
-4. No convertir a PDF en esta etapa: la generación del PDF corresponde al agente principal.
+4. Consultar el PDF final en [`../preguntas/Investigacion_y_reflexion.pdf`](../preguntas/Investigacion_y_reflexion.pdf).

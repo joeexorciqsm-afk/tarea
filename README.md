@@ -11,9 +11,9 @@ Sitio corporativo responsivo para **Nexo Digital**, una empresa ficticia de serv
 ```text
 proyectoweb/
 ├── capturas/
-│   ├── computadora.png
-│   ├── tableta.png
-│   └── telefono.png
+│   ├── computadora.jpg
+│   ├── tableta.jpg
+│   └── telefono.jpg
 ├── css/
 │   └── style.css
 ├── evidencias/
