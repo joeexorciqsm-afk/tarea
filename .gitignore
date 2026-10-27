@@ -1,0 +1,10 @@
+# Archivos temporales del sistema y editores
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Dependencias y compilaciones (no necesarias para este proyecto estático)
+node_modules/
+dist/
+build/

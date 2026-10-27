@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Joel Humberto Solis Ramírez">
+  <meta name="description" content="Investigación y reflexión sobre HTML5, CSS3, usabilidad, accesibilidad, diseño responsivo y frameworks CSS.">
+  <title>Actividad integradora | Investigación y reflexión</title>
+  <style>
+    :root {
+      --naranja: #ed6f2d;
+      --turquesa: #00a7a5;
+      --azul: #16405a;
+      --tinta: #202b33;
+      --gris: #5a6770;
+      --claro: #eef7f6;
+      --linea: #bdd5d4;
+      --papel: #fff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+      color: var(--tinta);
+      background: #dde7e8;
+      font-size: 11pt;
+      line-height: 1.48;
+    }
+
+    body {
+      width: 8.5in;
+      margin: 20px auto;
+      background: var(--papel);
+      box-shadow: 0 8px 28px rgb(23 53 65 / 18%);
+    }
+
+    main { padding: 0.72in; }
+
+    h1, h2, h3, h4 {
+      color: var(--azul);
+      line-height: 1.2;
+      break-after: avoid-page;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      margin: 0 0 0.45rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 3px solid var(--turquesa);
+      font-size: 20pt;
+    }
+
+    h3 { margin: 1.1rem 0 0.3rem; font-size: 14pt; }
+    h4 { margin: 0.8rem 0 0.2rem; font-size: 11.5pt; }
+    p { margin: 0.3rem 0 0.65rem; text-align: justify; }
+    ul, ol { margin: 0.35rem 0 0.8rem 1.25rem; padding: 0; }
+    li { margin: 0.2rem 0; }
+    a { color: #006a75; overflow-wrap: anywhere; }
+    strong { color: #173e54; }
+
+    code, pre {
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: 9.2pt;
+    }
+
+    code {
+      padding: 0.05rem 0.22rem;
+      border-radius: 3px;
+      background: #edf3f4;
+    }
+
+    pre {
+      margin: 0.45rem 0 0.85rem;
+      padding: 0.65rem;
+      border-left: 4px solid var(--naranja);
+      background: #f4f7f8;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+    }
+
+    table {
+      width: 100%;
+      margin: 0.55rem 0 1rem;
+      border-collapse: collapse;
+      font-size: 9.1pt;
+      break-inside: auto;
+    }
+
+    th, td {
+      padding: 0.35rem 0.42rem;
+      border: 1px solid #8eaaad;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { color: #fff; background: var(--azul); }
+    tr { break-inside: avoid-page; page-break-inside: avoid; }
+    tbody tr:nth-child(even) { background: #f0f7f7; }
+
+    .portada {
+      min-height: 9.56in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.05rem;
+      margin-top: 0.15in;
+    }
+
+    .monograma {
+      position: relative;
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      border: 7px solid var(--turquesa);
+      border-radius: 52% 48% 56% 44% / 45% 56% 44% 55%;
+      color: var(--naranja);
+      font-family: Georgia, serif;
+      font-size: 27pt;
+      font-weight: 800;
+      letter-spacing: -0.12em;
+      transform: rotate(-2deg);
+    }
+
+    .monograma::before,
+    .monograma::after {
+      content: "";
+      position: absolute;
+      background: var(--naranja);
+    }
+
+    .monograma::before { width: 68px; height: 6px; top: 10px; right: -15px; }
+    .monograma::after { width: 6px; height: 62px; bottom: -13px; left: 14px; }
+    .monograma span { transform: rotate(2deg); }
+
+    .institucion {
+      max-width: 5.6in;
+      text-align: left;
+    }
+
+    .institucion strong {
+      display: block;
+      color: var(--azul);
+      font-family: Georgia, serif;
+      font-size: 22pt;
+      line-height: 1.05;
+    }
+
+    .institucion small {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--turquesa);
+      font-size: 11.5pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .titulo-portada {
+      margin: 0.2in auto;
+      padding: 0.42in 0.25in;
+      border-top: 4px solid var(--naranja);
+      border-bottom: 4px solid var(--turquesa);
+    }
+
+    .titulo-portada .etiqueta {
+      margin: 0;
+      color: var(--naranja);
+      font-size: 11pt;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .titulo-portada h1 {
+      margin: 0.35rem 0 0;
+      color: var(--azul);
+      font-family: Georgia, serif;
+      font-size: 25pt;
+    }
+
+    .datos {
+      width: 82%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      font-size: 10.5pt;
+    }
+
+    .datos th,
+    .datos td { padding: 0.28rem 0.45rem; border-width: 0 0 1px; }
+    .datos th { width: 31%; color: var(--azul); background: transparent; text-align: right; }
+    .datos td { text-align: left; }
+    .lugar-fecha { color: var(--gris); font-weight: 600; }
+
+    .seccion {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    .subseccion {
+      margin-top: 1.1rem;
+      padding-top: 0.2rem;
+    }
+
+    .pregunta {
+      margin: 0.72rem 0 0.25rem;
+      color: #8b3e16;
+      font-weight: 800;
+      text-align: left;
+    }
+
+    .respuesta {
+      padding-left: 0.65rem;
+      border-left: 3px solid var(--linea);
+    }
+
+    .nota, .ejemplo, .conclusion {
+      margin: 0.65rem 0;
+      padding: 0.65rem 0.75rem;
+      border-radius: 5px;
+      background: var(--claro);
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+    }
+
+    .nota { border-left: 5px solid var(--turquesa); }
+    .ejemplo { border-left: 5px solid var(--naranja); }
+    .conclusion { border: 1px solid var(--turquesa); }
+    .compacto p { margin-bottom: 0.35rem; }
+
+    .diagrama {
+      padding: 0.65rem;
+      border: 1px solid var(--linea);
+      background: #fbfefe;
+      line-height: 1.35;
+      white-space: pre;
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+    }
+
+    .lista-reglas li { margin-bottom: 0.42rem; }
+    .checklist { columns: 2; column-gap: 1.2rem; }
+    .checklist li { break-inside: avoid; }
+    .firma { margin-top: 1.2in; text-align: center; }
+    .firma::before { content: ""; display: block; width: 2.8in; margin: 0 auto 0.15rem; border-top: 1px solid var(--tinta); }
+
+    @page {
+      size: letter;
+      margin: 0.65in;
+    }
+
+    @media print {
+      html, body { width: auto; margin: 0; background: #fff; box-shadow: none; }
+      main { padding: 0; }
+      a { color: inherit; text-decoration: none; }
+      a[href]::after { content: none; }
+      .portada { min-height: 9.65in; }
+      .seccion { page-break-before: always; break-before: page; }
+    }
+
+    @media screen and (max-width: 850px) {
+      body { width: 100%; margin: 0; }
+      main { padding: 1rem; }
+      .portada { min-height: 100vh; }
+      .marca { flex-direction: column; }
+      .institucion { text-align: center; }
+      .datos { width: 100%; }
+      .checklist { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <section class="portada" aria-labelledby="titulo-principal">
+    <div class="marca">
+      <div class="monograma" role="img" aria-label="Monograma tipográfico original con las letras UTM"><span>UTM</span></div>
+      <div class="institucion">
+        <strong>Universidad Tecnológica<br>de Montemorelos</strong>
+        <small>Ingeniería en Software · DSM4</small>
+      </div>
+    </div>
+
+    <div class="titulo-portada">
+      <p class="etiqueta">Investigación y reflexión</p>
+      <h1 id="titulo-principal">Actividad integradora: HTML5, CSS3, Usabilidad y Diseño Responsivo</h1>
+    </div>
+
+    <table class="datos" aria-label="Datos académicos">
+      <tbody>
+        <tr><th>Materia</th><td>Desarrollo de aplicaciones WEB</td></tr>
+        <tr><th>Docente</th><td>Edgar Gonzales</td></tr>
+        <tr><th>Alumno</th><td>Joel Humberto Solis Ramírez</td></tr>
+        <tr><th>Matrícula</th><td>27437</td></tr>
+        <tr><th>Carrera</th><td>Ingeniería en Software</td></tr>
+        <tr><th>Grupo</th><td>DSM4</td></tr>
+      </tbody>
+    </table>
+
+    <p class="lugar-fecha">Montemorelos, N.L. · 26/10/26</p>
+  </section>
+
+  <section aria-labelledby="indice">
+    <h2 id="indice">Contenido</h2>
+    <ol>
+      <li>Parte I. HTML5</li>
+      <li>Parte II. DOM y diagrama</li>
+      <li>Parte III. Etiquetas estructurales</li>
+      <li>Parte IV. Etiquetas de presentación y ejemplos</li>
+      <li>Parte V. Metadatos</li>
+      <li>Parte VI. Formularios y validación</li>
+      <li>Parte VII. Usabilidad y accesibilidad</li>
+      <li>Parte VIII. Análisis de un sitio web conocido</li>
+      <li>Parte IX. CSS y CSS3</li>
+      <li>Parte X. Reglas y selectores CSS</li>
+      <li>Parte XI. Propiedades, modelo de caja, Flexbox, diseño responsivo y frameworks</li>
+      <li>Reflexión final: 15 respuestas sobre el proyecto</li>
+      <li>Bibliografía</li>
+    </ol>
+    <div class="nota">
+      <strong>Propósito.</strong> Integrar los conceptos que permiten construir interfaces web semánticas, comprensibles, accesibles, adaptables y mantenibles. Los ejemplos son originales y están planteados para un sitio de una empresa tecnológica desarrollado con HTML5, CSS3 y Bootstrap.
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-i" aria-labelledby="h-parte-i">
+    <h2 id="h-parte-i">Parte I. HTML5</h2>
+
+    <p class="pregunta">1. ¿Qué es HTML5 y cuál es su función en una página web?</p>
+    <div class="respuesta">
+      <p><strong>HTML5</strong> es la evolución moderna del lenguaje de marcado HTML. Su función es describir la estructura y el significado del contenido que interpreta un navegador: títulos, párrafos, navegación, imágenes, formularios, tablas, audio, video y regiones de una página. No es un lenguaje de programación porque no define por sí solo algoritmos; organiza información mediante elementos y atributos.</p>
+      <p>HTML forma una de las tres capas básicas del desarrollo web: HTML aporta estructura y semántica; CSS controla presentación y distribución; JavaScript agrega comportamiento e interacción. Separarlas favorece el mantenimiento y permite que navegadores, buscadores y tecnologías de asistencia comprendan mejor el documento.</p>
+    </div>
+
+    <p class="pregunta">2. ¿Qué aportó HTML5 frente a versiones anteriores?</p>
+    <div class="respuesta">
+      <p>HTML5 simplificó la declaración del documento con <code>&lt;!doctype html&gt;</code>, incorporó elementos semánticos como <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>aside</code> y <code>footer</code>, y normalizó contenido multimedia con <code>audio</code>, <code>video</code> y <code>canvas</code>. También amplió los formularios con tipos como <code>email</code>, <code>date</code>, <code>number</code> y atributos de validación como <code>required</code>, <code>pattern</code>, <code>min</code> y <code>max</code>.</p>
+      <p><strong>Diferencia entre HTML y HTML5:</strong> HTML es el nombre general de la familia del lenguaje de marcado; HTML5 identifica su modernización, que incorporó semántica, multimedia y formularios mejorados. Frente a versiones antiguas, HTML5 evita varias etiquetas puramente visuales, simplifica el doctype y ofrece elementos nativos que antes dependían de complementos o soluciones externas.</p>
+      <p>Su enfoque semántico reduce el abuso de contenedores genéricos, mejora la accesibilidad y comunica el propósito de cada bloque. En la práctica, HTML se mantiene como un estándar vivo: recibe correcciones y mejoras graduales en lugar de depender únicamente de grandes versiones aisladas.</p>
+    </div>
+
+    <p class="pregunta">3. ¿Cuál es la estructura mínima correcta de un documento HTML5?</p>
+    <div class="respuesta">
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="es-MX"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Empresa tecnológica&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Soluciones digitales&lt;/h1&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>La función de cada parte es la siguiente:</p>
+      <table aria-label="Funciones de la estructura básica HTML5">
+        <thead><tr><th>Parte</th><th>Función</th></tr></thead>
+        <tbody>
+          <tr><td><code>&lt;!doctype html&gt;</code></td><td>Declara que el documento usa HTML moderno y hace que el navegador emplee su modo estándar. No es una etiqueta visible.</td></tr>
+          <tr><td><code>&lt;html&gt;</code></td><td>Es el elemento raíz que contiene todo el documento. Su atributo <code>lang</code> comunica el idioma principal.</td></tr>
+          <tr><td><code>&lt;head&gt;</code></td><td>Reúne metadatos y recursos no presentados como contenido principal: título, codificación, viewport, descripción y enlaces a estilos.</td></tr>
+          <tr><td><code>&lt;body&gt;</code></td><td>Contiene la información e interfaz que el usuario percibe: textos, imágenes, navegación, secciones, formularios y scripts asociados.</td></tr>
+        </tbody>
+      </table>
+      <p>El encabezado principal <code>h1</code> expresa el tema central de la página.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-ii" aria-labelledby="h-parte-ii">
+    <h2 id="h-parte-ii">Parte II. DOM y diagrama</h2>
+
+    <p class="pregunta">1. ¿Qué es el DOM?</p>
+    <div class="respuesta">
+      <p>El <strong>Document Object Model (DOM)</strong> es una representación en memoria del documento como un árbol de objetos. Cada etiqueta, texto y atributo se convierte en un nodo relacionado con nodos padre, hijos y hermanos. Esta interfaz permite que JavaScript consulte o modifique contenido, atributos, clases y eventos sin reescribir todo el archivo.</p>
+      <p>HTML es el texto fuente; el DOM es el modelo que el navegador construye después de analizarlo. Si JavaScript ejecuta <code>document.querySelector("#contacto")</code>, busca en ese árbol el elemento cuyo identificador sea <code>contacto</code>. Una modificación del DOM se refleja visualmente en la página renderizada, aunque no cambia automáticamente el archivo HTML guardado en el servidor.</p>
+    </div>
+
+    <p class="pregunta">2. ¿Cómo se organiza el árbol DOM? Incluye un diagrama.</p>
+    <div class="respuesta">
+      <p>El nodo raíz es <code>document</code>; normalmente contiene <code>html</code>, y este divide el documento en <code>head</code> y <code>body</code>. A partir de ahí se forman relaciones jerárquicas.</p>
+<pre class="diagrama" aria-label="Diagrama textual del árbol DOM">document
+└── HTML
+    ├── HEAD
+    │   └── TITLE
+    │       └── "Mi página"
+    └── BODY
+        ├── H1
+        │   └── "Mi sitio Web"
+        └── P
+            └── "Bienvenido"</pre>
+      <p>En el documento analizado, <code>head</code> y <code>body</code> son hijos de <code>html</code>. Dentro de <code>head</code> se encuentra <code>title</code>; dentro de <code>body</code>, <code>h1</code> y <code>p</code> son hermanos. Los textos entre etiquetas también son nodos.</p>
+    </div>
+
+    <p class="pregunta">3. ¿Qué es un nodo, un elemento y un atributo?</p>
+    <div class="respuesta">
+      <ul>
+        <li><strong>Nodo:</strong> unidad del árbol DOM. Puede representar el documento, un elemento, un texto, un comentario u otro tipo de dato.</li>
+        <li><strong>Elemento:</strong> nodo creado a partir de una etiqueta, como <code>p</code>, <code>img</code> o <code>form</code>. Puede contener atributos y nodos hijos.</li>
+        <li><strong>Atributo:</strong> dato asociado a un elemento que configura o describe su comportamiento, por ejemplo <code>href</code>, <code>src</code>, <code>id</code>, <code>class</code> o <code>alt</code>.</li>
+      </ul>
+      <p>El navegador analiza el texto HTML y construye esta jerarquía en memoria. Después combina el DOM con CSS para representarlo visualmente y expone métodos para que JavaScript lo consulte.</p>
+    </div>
+
+    <p class="pregunta">4. ¿Cómo puede JavaScript modificar el DOM?</p>
+    <div class="respuesta">
+      <p>Sirve para responder a acciones del usuario y actualizar la interfaz: abrir un menú, validar un formulario, filtrar tarjetas, mostrar un mensaje o cambiar un tema visual. Debe hacerse con moderación: actualizaciones pequeñas y deliberadas evitan problemas de rendimiento, y cualquier cambio debe conservar nombre, foco y estado accesibles.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-iii" aria-labelledby="h-parte-iii">
+    <h2 id="h-parte-iii">Parte III. Etiquetas estructurales</h2>
+
+    <p class="pregunta">1. ¿Qué son las etiquetas estructurales o semánticas?</p>
+    <div class="respuesta">
+      <p>Son elementos cuyo nombre explica la función de la región que contienen. Dan un esquema lógico al documento y crean puntos de referencia útiles para navegación con teclado, lectores de pantalla, motores de búsqueda y mantenimiento del código.</p>
+    </div>
+
+    <table aria-label="Etiquetas estructurales HTML5">
+      <thead><tr><th>Etiqueta</th><th>Función</th><th>Uso recomendado</th></tr></thead>
+      <tbody>
+        <tr><td><code>&lt;header&gt;</code></td><td>Contenido introductorio o encabezado.</td><td>Marca, título y controles iniciales de una página o sección.</td></tr>
+        <tr><td><code>&lt;nav&gt;</code></td><td>Bloque de navegación principal.</td><td>Menú del sitio, índice o paginación relevante.</td></tr>
+        <tr><td><code>&lt;main&gt;</code></td><td>Contenido principal único.</td><td>Debe existir como máximo uno visible por documento.</td></tr>
+        <tr><td><code>&lt;section&gt;</code></td><td>Agrupación temática.</td><td>Debe contar normalmente con un encabezado que la identifique.</td></tr>
+        <tr><td><code>&lt;article&gt;</code></td><td>Contenido autónomo y reutilizable.</td><td>Noticia, publicación, tarjeta detallada o entrada.</td></tr>
+        <tr><td><code>&lt;aside&gt;</code></td><td>Contenido complementario.</td><td>Datos relacionados, glosario o llamada lateral.</td></tr>
+        <tr><td><code>&lt;footer&gt;</code></td><td>Pie de página o sección.</td><td>Autoría, contacto, enlaces legales o cierre.</td></tr>
+        <tr><td><code>&lt;address&gt;</code></td><td>Información de contacto.</td><td>Datos de contacto del autor o entidad vinculada.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="pregunta">2. ¿Cuándo usar <code>div</code> en lugar de una etiqueta semántica?</p>
+    <div class="respuesta">
+      <p><code>div</code> es un contenedor genérico válido cuando no existe un elemento semántico adecuado, por ejemplo, para agrupar piezas únicamente por distribución visual. No debe elegirse por costumbre si el bloque representa claramente navegación, contenido principal, artículo o pie de página. La semántica describe el contenido; las clases CSS describen su apariencia.</p>
+    </div>
+
+    <div class="ejemplo">
+      <strong>Ejemplo integrado:</strong>
+<pre><code>&lt;header&gt;
+  &lt;nav aria-label="Navegación principal"&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;section aria-labelledby="servicios-titulo"&gt;
+    &lt;h2 id="servicios-titulo"&gt;Servicios&lt;/h2&gt;
+    &lt;article&gt;&lt;h3&gt;Desarrollo web&lt;/h3&gt;&lt;p&gt;...&lt;/p&gt;&lt;/article&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;&lt;address&gt;contacto@empresa.example&lt;/address&gt;&lt;/footer&gt;</code></pre>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-iv" aria-labelledby="h-parte-iv">
+    <h2 id="h-parte-iv">Parte IV. Etiquetas de presentación y ejemplos</h2>
+
+    <p class="pregunta">1. ¿Qué elementos presentan contenido textual o multimedia?</p>
+    <div class="respuesta">
+      <p>Se les suele llamar “etiquetas de presentación”, aunque en HTML moderno conviene pensar en <strong>estructura y significado</strong>, dejando color, tamaño y posición a CSS. Los elementos más comunes son:</p>
+    </div>
+
+    <table aria-label="Elementos de contenido y ejemplos">
+      <thead><tr><th>Elemento</th><th>Propósito</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td><code>h1</code>–<code>h6</code></td><td>Jerarquía de encabezados.</td><td><code>&lt;h2&gt;Nuestros servicios&lt;/h2&gt;</code></td></tr>
+        <tr><td><code>p</code></td><td>Párrafo.</td><td><code>&lt;p&gt;Creamos productos digitales.&lt;/p&gt;</code></td></tr>
+        <tr><td><code>strong</code></td><td>Importancia fuerte.</td><td><code>&lt;strong&gt;Entrega segura&lt;/strong&gt;</code></td></tr>
+        <tr><td><code>em</code></td><td>Énfasis que cambia el sentido.</td><td><code>&lt;em&gt;Primero&lt;/em&gt; diseñamos.</code></td></tr>
+        <tr><td><code>mark</code></td><td>Texto relevante o resaltado.</td><td><code>&lt;mark&gt;Nueva versión&lt;/mark&gt;</code></td></tr>
+        <tr><td><code>small</code></td><td>Comentario secundario o legal.</td><td><code>&lt;small&gt;Aplican restricciones.&lt;/small&gt;</code></td></tr>
+        <tr><td><code>del</code></td><td>Contenido eliminado o que dejó de ser vigente.</td><td><code>&lt;del&gt;$1,200&lt;/del&gt;</code></td></tr>
+        <tr><td><code>ins</code></td><td>Contenido añadido posteriormente.</td><td><code>&lt;ins&gt;Nueva condición&lt;/ins&gt;</code></td></tr>
+        <tr><td><code>sub</code></td><td>Subíndice tipográfico con significado.</td><td><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></td></tr>
+        <tr><td><code>sup</code></td><td>Superíndice tipográfico con significado.</td><td><code>m&lt;sup&gt;2&lt;/sup&gt;</code></td></tr>
+        <tr><td><code>abbr</code></td><td>Abreviatura explicada.</td><td><code>&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code></td></tr>
+        <tr><td><code>blockquote</code>/<code>q</code></td><td>Cita en bloque o breve.</td><td><code>&lt;q&gt;Diseñar es resolver.&lt;/q&gt;</code></td></tr>
+        <tr><td><code>code</code>/<code>pre</code></td><td>Código y texto preformateado.</td><td><code>&lt;code&gt;display: flex;&lt;/code&gt;</code></td></tr>
+        <tr><td><code>ul</code>/<code>ol</code>/<code>li</code></td><td>Listas sin orden o numeradas.</td><td><code>&lt;ul&gt;&lt;li&gt;Diseño&lt;/li&gt;&lt;/ul&gt;</code></td></tr>
+        <tr><td><code>a</code></td><td>Hipervínculo.</td><td><code>&lt;a href="#contacto"&gt;Contacto&lt;/a&gt;</code></td></tr>
+        <tr><td><code>img</code>/<code>figure</code>/<code>figcaption</code></td><td>Imagen, unidad ilustrada y descripción.</td><td><code>&lt;img src="equipo.webp" alt="Equipo colaborando"&gt;</code></td></tr>
+        <tr><td><code>audio</code>/<code>video</code></td><td>Multimedia nativa.</td><td><code>&lt;video controls&gt;...&lt;/video&gt;</code></td></tr>
+      </tbody>
+    </table>
+
+    <p class="pregunta">2. ¿Por qué ya no se recomiendan etiquetas como <code>font</code>, <code>center</code> o <code>big</code>?</p>
+    <div class="respuesta">
+      <p>Porque mezclan contenido con apariencia, están obsoletas y dificultan consistencia, accesibilidad y mantenimiento. En lugar de <code>&lt;center&gt;</code> se usa una regla como <code>text-align: center</code>; en lugar de <code>&lt;font color="blue"&gt;</code>, una clase CSS. Elementos como <code>strong</code> y <code>em</code> sí son apropiados cuando expresan significado, no solo estilo visual.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-v" aria-labelledby="h-parte-v">
+    <h2 id="h-parte-v">Parte V. Metadatos</h2>
+
+    <p class="pregunta">1. ¿Qué son los metadatos y dónde se colocan?</p>
+    <div class="respuesta">
+      <p>Son datos que describen el documento y orientan al navegador, buscadores y plataformas, aunque normalmente no aparecen como contenido principal. Se colocan dentro de <code>head</code>. No sustituyen un contenido bien estructurado, pero ayudan a interpretar idioma, codificación, escala, autoría y resumen.</p>
+    </div>
+
+    <p class="pregunta">2. ¿Cuáles son los metadatos esenciales y qué función cumplen?</p>
+    <div class="respuesta">
+      <ul>
+        <li><code>&lt;meta charset="utf-8"&gt;</code>: selecciona UTF-8 como codificación, permitiendo representar correctamente acentos, eñes, símbolos y caracteres de múltiples idiomas.</li>
+        <li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>: controla el área de visualización en dispositivos móviles. <code>width=device-width</code> iguala el ancho lógico de la página al ancho de la pantalla; <code>initial-scale=1.0</code> establece un nivel inicial de zoom de 100 %. Es importante porque, sin esta configuración, un teléfono puede simular una ventana de escritorio, mostrar todo demasiado pequeño e impedir que las media queries correspondan al espacio real.</li>
+        <li><code>&lt;title&gt;</code>: identifica la pestaña, el historial y el título frecuente en resultados de búsqueda.</li>
+        <li><code>description</code>: resumen conciso y específico de la página.</li>
+        <li><code>author</code>: autor responsable del documento cuando sea pertinente.</li>
+        <li><code>link rel="canonical"</code>: señala la dirección preferida cuando el mismo contenido tiene URL alternativas.</li>
+        <li><code>link rel="icon"</code>: declara el ícono del sitio.</li>
+        <li>Metadatos sociales, como Open Graph, ayudan a controlar la vista previa al compartir; deben reflejar el contenido real.</li>
+      </ul>
+<pre><code>&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;meta name="description" content="Servicios de desarrollo web y nube."&gt;
+  &lt;meta name="author" content="Equipo NovaTech"&gt;
+  &lt;title&gt;NovaTech | Soluciones digitales&lt;/title&gt;
+  &lt;link rel="canonical" href="https://www.example.com/"&gt;
+&lt;/head&gt;</code></pre>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-vi" aria-labelledby="h-parte-vi">
+    <h2 id="h-parte-vi">Parte VI. Formulario y validación</h2>
+
+    <p class="pregunta">1. ¿Qué es un formulario HTML y cuáles son sus elementos principales?</p>
+    <div class="respuesta">
+      <p>Un formulario recopila información para procesarla. <code>form</code> agrupa controles; <code>label</code> nombra cada campo; <code>input</code>, <code>select</code> y <code>textarea</code> capturan datos; <code>fieldset</code> y <code>legend</code> agrupan opciones relacionadas; y <code>button</code> ejecuta una acción. Para un envío real, los controles requieren <code>name</code>, y el formulario necesita destino y método definidos por la aplicación.</p>
+    </div>
+
+    <p class="pregunta">2. Construye un formulario accesible con validación nativa.</p>
+    <div class="respuesta">
+<pre><code>&lt;form action="/solicitudes" method="post"&gt;
+  &lt;div&gt;
+    &lt;label for="nombre"&gt;Nombre completo&lt;/label&gt;
+    &lt;input id="nombre" name="nombre" type="text"
+           autocomplete="name" minlength="3" maxlength="80" required&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for="correo"&gt;Correo empresarial&lt;/label&gt;
+    &lt;input id="correo" name="correo" type="email"
+           autocomplete="email" aria-describedby="ayuda-correo" required&gt;
+    &lt;small id="ayuda-correo"&gt;Ejemplo: nombre@empresa.com&lt;/small&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for="telefono"&gt;Teléfono a 10 dígitos&lt;/label&gt;
+    &lt;input id="telefono" name="telefono" type="tel"
+           inputmode="numeric" pattern="[0-9]{10}"
+           autocomplete="tel" required&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for="servicio"&gt;Servicio de interés&lt;/label&gt;
+    &lt;select id="servicio" name="servicio" required&gt;
+      &lt;option value=""&gt;Selecciona una opción&lt;/option&gt;
+      &lt;option value="web"&gt;Desarrollo web&lt;/option&gt;
+      &lt;option value="nube"&gt;Soluciones en la nube&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for="mensaje"&gt;Describe tu proyecto&lt;/label&gt;
+    &lt;textarea id="mensaje" name="mensaje" rows="5"
+              minlength="20" maxlength="500" required&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+  &lt;label&gt;
+    &lt;input name="privacidad" type="checkbox" required&gt;
+    Acepto el aviso de privacidad
+  &lt;/label&gt;
+  &lt;button type="submit"&gt;Enviar solicitud&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+
+    <p class="pregunta">3. ¿Cómo funciona la validación y qué prácticas deben aplicarse?</p>
+    <div class="respuesta">
+      <p>El navegador evalúa restricciones declarativas: <code>required</code> evita datos vacíos; el tipo <code>email</code> comprueba una forma básica; <code>minlength</code>/<code>maxlength</code> limitan longitud; <code>min</code>/<code>max</code> delimitan valores; y <code>pattern</code> aplica una expresión regular. JavaScript puede complementar la experiencia mediante la API <code>checkValidity()</code>, <code>reportValidity()</code> y mensajes específicos.</p>
+      <ol>
+        <li>Usar una etiqueta visible asociada mediante <code>for</code> e <code>id</code>; un <code>placeholder</code> no reemplaza la etiqueta.</li>
+        <li>Explicar formato y restricciones antes del envío.</li>
+        <li>Mostrar el error junto al campo, indicar cómo corregirlo y mover el foco de forma razonable.</li>
+        <li>No depender solo del color; combinar texto, borde, ícono o estado.</li>
+        <li>Conservar los datos correctos si ocurre un error.</li>
+        <li>Validar otra vez en el servidor: la validación del navegador mejora la experiencia, pero puede omitirse o alterarse y no constituye una barrera de seguridad.</li>
+        <li>Sanear y tratar datos conforme a su contexto de salida, aplicar protección CSRF cuando corresponda y recolectar únicamente la información necesaria.</li>
+      </ol>
+      <div class="nota"><strong>Conclusión de seguridad:</strong> la validación del cliente ofrece retroalimentación rápida; la validación del servidor es la autoridad final para integridad, permisos y seguridad.</div>
+    </div>
+    <p class="pregunta">4. ¿Qué ventajas tiene utilizar las validaciones de HTML5 antes de JavaScript?</p>
+    <div class="respuesta">
+      <p>Son declarativas, rápidas y están integradas en el navegador; reducen código repetido, funcionan incluso si un script tarda en cargar y proporcionan controles adecuados para teclado móvil y tecnologías de asistencia. También mantienen reglas visibles en el propio HTML. JavaScript puede mejorar mensajes o flujos complejos, pero no debería reemplazar restricciones simples. Ninguna validación del cliente sustituye la validación obligatoria del servidor.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-vii" aria-labelledby="h-parte-vii">
+    <h2 id="h-parte-vii">Parte VII. Usabilidad y accesibilidad</h2>
+
+    <p class="pregunta">1. ¿Qué es usabilidad?</p>
+    <div class="respuesta">
+      <p>Es el grado en que personas específicas pueden utilizar un producto para alcanzar objetivos con efectividad, eficiencia y satisfacción en un contexto determinado. En una web implica saber dónde se está, entender qué ofrece la página, completar tareas sin confusión, prevenir errores y recuperarse de ellos.</p>
+    </div>
+
+    <p class="pregunta">2. ¿Qué es accesibilidad web?</p>
+    <div class="respuesta">
+      <p>Es la práctica de diseñar y desarrollar sitios que puedan percibirse, operarse, comprenderse y utilizarse de forma robusta por personas con distintas capacidades, dispositivos y contextos. Incluye compatibilidad con teclado, lectores de pantalla, ampliación, alto contraste y preferencias de movimiento. Accesibilidad y usabilidad se complementan: una interfaz puede cumplir técnicamente algunas reglas y aun así ser difícil de entender.</p>
+    </div>
+
+    <p class="pregunta">3. ¿Qué características debe tener una interfaz fácil de utilizar y por qué se considera al usuario?</p>
+    <div class="respuesta">
+      <p>Debe ser clara, consistente, legible, predecible, rápida de aprender, sencilla de navegar y capaz de prevenir errores o ayudar a corregirlos. Sus controles necesitan etiquetas comprensibles y retroalimentación inmediata. Considerar al usuario permite diseñar para sus objetivos, capacidades, dispositivo y contexto reales, en vez de imponer la lógica interna del sistema. Esto reduce abandono, errores y necesidad de soporte.</p>
+    </div>
+
+    <p class="pregunta">4. Indica al menos ocho reglas de usabilidad y accesibilidad.</p>
+    <div class="respuesta">
+      <ol class="lista-reglas">
+        <li><strong>Jerarquía clara:</strong> usar un título principal y encabezados en orden lógico; no elegir niveles solo por su tamaño visual.</li>
+        <li><strong>Navegación consistente:</strong> mantener etiquetas, posición y comportamiento del menú en todas las vistas.</li>
+        <li><strong>Teclado completo:</strong> todas las acciones deben ser alcanzables con Tab, activables con teclado y sin trampas de foco.</li>
+        <li><strong>Foco visible:</strong> cada enlace, botón y control necesita un indicador de foco con contraste suficiente; nunca eliminar el contorno sin reemplazo.</li>
+        <li><strong>Contraste y legibilidad:</strong> usar combinaciones distinguibles, tipografía de tamaño adecuado, renglones razonables y espacio suficiente.</li>
+        <li><strong>Alternativas textuales:</strong> escribir <code>alt</code> útil para imágenes informativas y <code>alt=""</code> para imágenes decorativas.</li>
+        <li><strong>Controles con nombre:</strong> asociar <code>label</code> con campos y dar nombres accesibles a botones de solo ícono.</li>
+        <li><strong>No depender del color:</strong> errores, estados y gráficas deben incluir texto, patrón o símbolo además del color.</li>
+        <li><strong>Mensajes accionables:</strong> explicar qué ocurrió, dónde está el problema y cómo resolverlo; conservar la entrada válida.</li>
+        <li><strong>Objetivos táctiles cómodos:</strong> enlaces y botones necesitan superficie y separación suficientes para reducir toques accidentales.</li>
+        <li><strong>Diseño adaptable:</strong> evitar desplazamiento horizontal a anchos comunes y permitir zoom sin pérdida de contenido.</li>
+        <li><strong>Movimiento controlable:</strong> respetar <code>prefers-reduced-motion</code>, evitar parpadeos y permitir pausar contenido animado.</li>
+        <li><strong>Lenguaje comprensible:</strong> frases breves, instrucciones directas y términos consistentes; expandir abreviaturas no familiares.</li>
+        <li><strong>HTML nativo primero:</strong> preferir <code>button</code>, <code>a</code>, <code>input</code> y landmarks antes que recrearlos con <code>div</code> y ARIA.</li>
+      </ol>
+    </div>
+
+    <p class="pregunta">5. ¿Cómo verificar estas reglas?</p>
+    <div class="respuesta">
+      <p>Se combinan revisiones manuales y herramientas: recorrer solo con teclado; probar zoom a 200 % y reflujo; inspeccionar contraste; escuchar la página con lector de pantalla; revisar etiquetas y texto alternativo; probar mensajes de error; ejecutar validadores y auditorías automáticas; y realizar tareas reales con usuarios. La automatización detecta ciertos patrones, pero no puede decidir por sí sola si un texto alternativo es útil o si un flujo resulta comprensible.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-viii" aria-labelledby="h-parte-viii">
+    <h2 id="h-parte-viii">Parte VIII. Análisis de un sitio web conocido</h2>
+
+    <p class="pregunta">1. Analiza la usabilidad y accesibilidad de un sitio reconocido.</p>
+    <div class="respuesta">
+      <p><strong>Sitio elegido: Wikipedia en español.</strong> Es una enciclopedia colaborativa orientada a consultar, relacionar y editar conocimiento. El análisis es heurístico y conceptual; las características pueden variar por versión, sesión, dispositivo o artículo.</p>
+    </div>
+
+    <table aria-label="Análisis detallado de Wikipedia">
+      <thead><tr><th>Aspecto solicitado</th><th>Observación</th></tr></thead>
+      <tbody>
+        <tr><td>Menú de navegación</td><td>La búsqueda, el índice y los enlaces internos facilitan localizar contenido, aunque la cantidad de opciones puede ser alta.</td></tr>
+        <tr><td>Colores</td><td>Predominan fondos claros, texto oscuro y enlaces diferenciados; la sobriedad favorece la lectura.</td></tr>
+        <tr><td>Tipografía</td><td>Es legible y mantiene jerarquías claras entre título, subtítulos, cuerpo y referencias.</td></tr>
+        <tr><td>Organización</td><td>Los artículos usan introducción, índice, secciones, referencias e información complementaria.</td></tr>
+        <tr><td>Formularios</td><td>La búsqueda es directa; los formularios de edición son más complejos y requieren aprendizaje.</td></tr>
+        <tr><td>Botones</td><td>Las acciones principales son reconocibles, aunque algunos controles secundarios compiten por atención.</td></tr>
+        <tr><td>Mensajes</td><td>Los avisos informan estado editorial y mantenimiento, pero varios avisos simultáneos aumentan densidad.</td></tr>
+        <tr><td>Imágenes</td><td>Incluyen leyendas y contexto; la calidad del texto alternativo depende de las contribuciones.</td></tr>
+        <tr><td>Adaptación móvil</td><td>El contenido se reorganiza para pantallas estrechas, pero ciertas tablas todavía necesitan desplazamiento lateral.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Cinco aspectos positivos</h3>
+    <ol>
+      <li><strong>Propósito evidente:</strong> el título del artículo, la entrada de búsqueda y el contenido principal permiten reconocer rápidamente la tarea.</li>
+      <li><strong>Estructura extensa pero navegable:</strong> encabezados, índice y enlaces internos ayudan a saltar entre secciones sin recorrer todo el texto.</li>
+      <li><strong>Convenciones familiares:</strong> los enlaces se distinguen, la búsqueda ocupa un lugar predecible y las referencias siguen patrones consistentes.</li>
+      <li><strong>Contenido alternativo y semántico:</strong> muchas imágenes poseen descripciones y el contenido enciclopédico suele organizarse con encabezados, listas, tablas y leyendas.</li>
+      <li><strong>Adaptación y preferencias:</strong> el sitio ofrece presentación para distintos anchos y permite ajustar aspectos de lectura; su contenido textual funciona aun con capacidades limitadas.</li>
+    </ol>
+
+    <h3>Cinco oportunidades de mejora</h3>
+    <ol>
+      <li><strong>Densidad cognitiva:</strong> artículos largos, referencias, avisos y controles simultáneos pueden abrumar. Podrían jerarquizarse mejor acciones secundarias.</li>
+      <li><strong>Tablas complejas:</strong> algunas infoboxes o tablas creadas por la comunidad requieren desplazamiento lateral y pueden ser difíciles con ampliación o lector de pantalla.</li>
+      <li><strong>Consistencia del texto alternativo:</strong> la calidad depende de cada contribución; convendría reforzar guías y controles editoriales para imágenes significativas.</li>
+      <li><strong>Lenguaje especializado:</strong> ciertos artículos empiezan con definiciones densas. Resúmenes introductorios en lenguaje sencillo ayudarían a públicos no expertos.</li>
+      <li><strong>Carga de navegación por teclado:</strong> la cantidad de enlaces puede volver largo el recorrido. Atajos, enlaces de salto visibles al foco y landmarks consistentes reducen esfuerzo.</li>
+    </ol>
+
+    <p class="pregunta">2. ¿Qué puede adoptar el proyecto de empresa tecnológica?</p>
+    <div class="respuesta">
+      <p>Puede adoptar títulos descriptivos, navegación predecible, enlaces internos, diseño centrado en lectura y contenido disponible sin interacciones complejas. Debe evitar páginas saturadas, limitar acciones secundarias, presentar tablas adaptables, escribir textos breves y probar el recorrido con teclado desde el primer prototipo.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-ix" aria-labelledby="h-parte-ix">
+    <h2 id="h-parte-ix">Parte IX. CSS y CSS3</h2>
+
+    <p class="pregunta">1. ¿Qué es CSS y para qué sirve?</p>
+    <div class="respuesta">
+      <p><strong>CSS (Cascading Style Sheets)</strong> es el lenguaje que define cómo se presenta un documento: colores, tipografía, espaciado, tamaño, bordes, fondos, distribución y adaptación. “Cascada” significa que varias declaraciones pueden competir y el navegador resuelve el valor final según origen, importancia, capa, especificidad y orden.</p>
+      <p>Separar CSS de HTML permite reutilizar estilos, conservar coherencia y cambiar la identidad visual sin alterar el significado del contenido. Puede incorporarse en línea, dentro de <code>style</code> o mediante un archivo externo con <code>link</code>; para proyectos se prefiere el archivo externo por mantenimiento y caché.</p>
+    </div>
+
+    <p class="pregunta">2. ¿Qué significa CSS3?</p>
+    <div class="respuesta">
+      <p>CSS3 se usó para nombrar la etapa en que CSS se organizó en módulos y sumó capacidades como media queries, transiciones, transformaciones, fondos múltiples, sombras, bordes redondeados, Flexbox y Grid. Actualmente los módulos evolucionan de forma independiente, por lo que en documentación técnica resulta más preciso hablar de CSS moderno y del nivel de cada módulo, no de una única versión monolítica.</p>
+    </div>
+
+    <p class="pregunta">3. ¿Qué beneficios aporta CSS moderno?</p>
+    <div class="respuesta">
+      <ul>
+        <li>Diseños fluidos con Flexbox, Grid, funciones como <code>min()</code>, <code>max()</code> y <code>clamp()</code>.</li>
+        <li>Variables con propiedades personalizadas para colores, espacios y temas.</li>
+        <li>Adaptación por medio, tamaño, orientación y preferencias de usuario.</li>
+        <li>Interacciones visuales con transiciones y transformaciones sin sacrificar la estructura.</li>
+        <li>Mejor aislamiento mediante metodologías, capas de cascada y selectores funcionales.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-x" aria-labelledby="h-parte-x">
+    <h2 id="h-parte-x">Parte X. Regla CSS y selectores</h2>
+
+    <p class="pregunta">1. ¿Cómo se compone una regla CSS?</p>
+    <div class="respuesta">
+<pre><code>.tarjeta {
+  color: #173e54;
+  padding: 1rem;
+}
+/* selector { propiedad: valor; propiedad: valor; } */</code></pre>
+      <p><code>.tarjeta</code> es el selector; cada pareja <code>propiedad: valor</code> es una declaración; las declaraciones se encierran entre llaves y terminan con punto y coma. En este caso se seleccionan elementos con la clase <code>tarjeta</code> y se les asignan color y espacio interior.</p>
+    </div>
+
+    <p class="pregunta">2. Explica los principales selectores con ejemplos.</p>
+    <div class="respuesta">
+      <table aria-label="Selectores CSS y ejemplos">
+        <thead><tr><th>Tipo</th><th>Ejemplo</th><th>Qué selecciona</th></tr></thead>
+        <tbody>
+          <tr><td>Universal</td><td><code>* { box-sizing: border-box; }</code></td><td>Todos los elementos.</td></tr>
+          <tr><td>Tipo o etiqueta</td><td><code>p { line-height: 1.6; }</code></td><td>Todos los párrafos.</td></tr>
+          <tr><td>Clase</td><td><code>.boton { ... }</code></td><td>Elementos cuya clase incluye <code>boton</code>.</td></tr>
+          <tr><td>Identificador</td><td><code>#contacto { ... }</code></td><td>El elemento con ese <code>id</code> único.</td></tr>
+          <tr><td>Agrupación</td><td><code>h1, h2, h3 { ... }</code></td><td>Cualquiera de los selectores separados por coma.</td></tr>
+          <tr><td>Atributo presente</td><td><code>input[required] { ... }</code></td><td>Campos que contienen <code>required</code>.</td></tr>
+          <tr><td>Atributo exacto</td><td><code>input[type="email"] { ... }</code></td><td>Campos cuyo tipo es exactamente email.</td></tr>
+          <tr><td>Palabra en atributo</td><td><code>[class~="activa"] { ... }</code></td><td>Atributo con la palabra separada <code>activa</code>.</td></tr>
+          <tr><td>Prefijo</td><td><code>a[href^="https"] { ... }</code></td><td>Enlaces cuyo destino inicia con <code>https</code>.</td></tr>
+          <tr><td>Sufijo</td><td><code>a[href$=".pdf"] { ... }</code></td><td>Enlaces cuyo destino termina en <code>.pdf</code>.</td></tr>
+          <tr><td>Subcadena</td><td><code>a[href*="docs"] { ... }</code></td><td>Enlaces cuyo destino contiene <code>docs</code>.</td></tr>
+          <tr><td>Descendiente</td><td><code>nav a { ... }</code></td><td>Enlaces dentro de <code>nav</code>, a cualquier profundidad.</td></tr>
+          <tr><td>Hijo directo</td><td><code>ul &gt; li { ... }</code></td><td><code>li</code> cuyo padre inmediato es <code>ul</code>.</td></tr>
+          <tr><td>Hermano adyacente</td><td><code>h2 + p { ... }</code></td><td>Primer párrafo inmediatamente posterior a un <code>h2</code>.</td></tr>
+          <tr><td>Hermanos generales</td><td><code>h2 ~ p { ... }</code></td><td>Párrafos hermanos posteriores al <code>h2</code>.</td></tr>
+          <tr><td>Pseudoclase de interacción</td><td><code>a:hover</code>, <code>button:focus-visible</code></td><td>Estado de puntero o foco visible.</td></tr>
+          <tr><td>Pseudoclase de formulario</td><td><code>input:valid</code>, <code>input:invalid</code></td><td>Campos según su validez.</td></tr>
+          <tr><td>Pseudoclase estructural</td><td><code>li:first-child</code>, <code>tr:nth-child(even)</code></td><td>Posición entre hermanos.</td></tr>
+          <tr><td>Pseudoclase funcional</td><td><code>:not(.oculto)</code>, <code>:is(h2, h3)</code></td><td>Exclusión o agrupación lógica.</td></tr>
+          <tr><td>Pseudoelemento</td><td><code>p::first-letter</code>, <code>.dato::before</code></td><td>Parte virtual o generada de un elemento.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pregunta">3. ¿Cómo funciona la especificidad?</p>
+    <div class="respuesta">
+      <p>Cuando dos reglas aplicables declaran la misma propiedad, se comparan, entre otros factores, la importancia y la especificidad. En forma simplificada: un identificador pesa más que una clase, atributo o pseudoclase; estos pesan más que una etiqueta o pseudoelemento. Si empatan, suele ganar la declaración posterior dentro del mismo contexto. Se recomienda trabajar con clases de baja especificidad, evitar <code>!important</code> como solución habitual y organizar la cascada para que sea predecible.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="parte-xi" aria-labelledby="h-parte-xi">
+    <h2 id="h-parte-xi">Parte XI. Propiedades, modelo de caja, Flexbox, responsive y frameworks</h2>
+
+    <h3>A. Propiedades CSS</h3>
+    <p class="pregunta">1. ¿Qué propiedades se usan con mayor frecuencia?</p>
+    <div class="respuesta">
+      <table aria-label="Categorías de propiedades CSS">
+        <thead><tr><th>Categoría</th><th>Propiedades</th><th>Finalidad</th></tr></thead>
+        <tbody>
+          <tr><td>Tipografía</td><td><code>font-family</code>, <code>font-size</code>, <code>font-weight</code>, <code>line-height</code>, <code>text-align</code></td><td>Legibilidad y jerarquía textual.</td></tr>
+          <tr><td>Color y fondo</td><td><code>color</code>, <code>background-color</code>, <code>background-image</code></td><td>Identidad y contraste.</td></tr>
+          <tr><td>Tamaño</td><td><code>width</code>, <code>max-width</code>, <code>min-height</code>, <code>aspect-ratio</code></td><td>Dimensiones y límites fluidos.</td></tr>
+          <tr><td>Espaciado/borde</td><td><code>margin</code>, <code>padding</code>, <code>border</code>, <code>border-radius</code></td><td>Separación y contorno.</td></tr>
+          <tr><td>Distribución</td><td><code>display</code>, <code>position</code>, <code>flex</code>, <code>grid-template-columns</code>, <code>gap</code></td><td>Flujo y alineación.</td></tr>
+          <tr><td>Visibilidad</td><td><code>overflow</code>, <code>opacity</code>, <code>visibility</code></td><td>Recorte y presentación.</td></tr>
+          <tr><td>Interacción</td><td><code>cursor</code>, <code>transition</code>, <code>transform</code>, <code>outline</code></td><td>Retroalimentación visual y foco.</td></tr>
+        </tbody>
+      </table>
+      <p>Conviene preferir unidades relativas: <code>rem</code> para tamaños ligados a la raíz, <code>em</code> para el contexto, porcentajes para proporciones y unidades de viewport con límites. Los píxeles siguen siendo útiles para bordes o detalles, pero una interfaz no debe depender de dimensiones rígidas.</p>
+    </div>
+
+    <h3>B. Modelo de caja</h3>
+    <p class="pregunta">2. ¿Qué es el modelo de caja?</p>
+    <div class="respuesta">
+      <p>Cada elemento se representa como una caja compuesta, desde adentro hacia afuera, por <strong>contenido</strong>, <strong>padding</strong>, <strong>borde</strong> y <strong>margin</strong>. En el modelo inicial <code>content-box</code>, el ancho declarado solo mide el contenido; padding y borde se agregan. Con <code>border-box</code>, el ancho declarado incluye contenido, padding y borde, lo que vuelve más predecible la distribución.</p>
+<pre><code>*, *::before, *::after { box-sizing: border-box; }
+
+.tarjeta {
+  width: 320px;       /* ancho total con border-box */
+  padding: 24px;      /* espacio interior */
+  border: 2px solid #00a7a5;
+  margin: 16px;       /* espacio exterior */
+}</code></pre>
+      <p>Los márgenes verticales de ciertos elementos en flujo normal pueden colapsar. El <code>outline</code> se dibuja fuera de la caja sin ocupar espacio y es útil para el foco; no debe confundirse con el borde.</p>
+    </div>
+
+    <h3>C. Flexbox</h3>
+    <p class="pregunta">3. ¿Qué es Flexbox y cómo se utiliza?</p>
+    <div class="respuesta">
+      <p>Flexbox es un modelo unidimensional para distribuir elementos en una fila o columna. El contenedor usa <code>display: flex</code>; <code>flex-direction</code> define el eje principal; <code>justify-content</code> distribuye sobre ese eje; <code>align-items</code> alinea sobre el eje transversal; <code>gap</code> separa; y <code>flex-wrap</code> permite saltos de línea. En los hijos, <code>flex-grow</code>, <code>flex-shrink</code> y <code>flex-basis</code> controlan crecimiento, reducción y base.</p>
+<pre><code>.servicios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.servicio {
+  flex: 1 1 16rem;
+  max-width: 24rem;
+}</code></pre>
+      <p>Es apropiado para navegación, grupos de botones, tarjetas y alineación de componentes. Para distribución bidimensional de filas y columnas, CSS Grid suele ser más adecuado. Ambos pueden combinarse.</p>
+    </div>
+
+    <h3>D. Diseño responsivo, Mobile First y media queries</h3>
+    <p class="pregunta">4. ¿Qué es diseño web responsivo?</p>
+    <div class="respuesta">
+      <p>Es un enfoque para que contenido, controles y distribución se adapten a diferentes tamaños, orientaciones y capacidades sin crear una página separada para cada dispositivo. Se apoya en cuadrículas flexibles, imágenes adaptables, unidades relativas, límites de ancho, contenido prioritario y consultas de medios. “Responsivo” no significa únicamente reducir elementos: implica conservar comprensión, orden, operabilidad y legibilidad.</p>
+      <p>Es importante porque las personas acceden desde teléfonos, tabletas, computadoras portátiles, monitores amplios y equipos con orientación o zoom diferentes. Una adaptación correcta evita texto diminuto, elementos superpuestos, controles difíciles de tocar y desplazamiento horizontal innecesario.</p>
+    </div>
+
+    <p class="pregunta">5. ¿Qué significa Mobile First?</p>
+    <div class="respuesta">
+      <p>Mobile First consiste en definir primero la experiencia esencial para pantallas estrechas y después enriquecerla cuando existe espacio. Ayuda a priorizar contenido y rendimiento. En CSS, los estilos base resuelven móvil y las media queries con <code>min-width</code> agregan columnas o espacios progresivamente.</p>
+<pre><code>.contenedor { width: min(100% - 2rem, 72rem); margin-inline: auto; }
+.tarjetas { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+img { max-width: 100%; height: auto; }
+
+@media (min-width: 48rem) {
+  .tarjetas { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 64rem) {
+  .tarjetas { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto; transition: none; }
+}</code></pre>
+    </div>
+
+    <p class="pregunta">6. ¿Qué son las media queries?</p>
+    <div class="respuesta">
+      <p>Son reglas condicionales que aplican estilos si el medio cumple una condición, por ejemplo ancho, orientación, puntero, contraste o preferencia de movimiento. Un <strong>breakpoint</strong> es el punto en el que se decide cambiar la composición porque el contenido ya no cabe o deja de ser cómodo; debe elegirse por las necesidades del diseño, no por intentar cubrir cada modelo de dispositivo. También se deben evitar cambios de orden visual que contradigan el orden del DOM.</p>
+<pre><code>@media (max-width: 768px) {
+  .contenedor {
+    width: 100%;
+  }
+
+  .acciones {
+    flex-direction: column;
+  }
+}</code></pre>
+      <p>Este ejemplo hace fluido el contenedor y apila las acciones cuando el ancho disponible es de 768 píxeles o menos.</p>
+    </div>
+
+    <p class="pregunta">7. Describe pruebas conceptuales para escritorio, tableta y móvil.</p>
+    <div class="respuesta">
+      <table aria-label="Pruebas conceptuales de diseño responsivo">
+        <thead><tr><th>Vista</th><th>Comportamiento esperado</th><th>Pruebas</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Escritorio</strong><br>≥ 1024 px</td><td>Navegación horizontal; hero con texto y recurso visual; tres tarjetas; formulario con campos relacionados en columnas cuando resulte claro.</td><td>Leer sin líneas excesivamente largas; foco visible; zoom 200 %; no tapar anclas con cabecera fija; validar uso con ratón y teclado.</td></tr>
+          <tr><td><strong>Tableta</strong><br>768–1023 px</td><td>Dos tarjetas por fila; navegación compacta; espacios moderados; controles táctiles cómodos.</td><td>Orientación vertical y horizontal; sin superposición; tablas con estrategia de reflujo o scroll identificado; imágenes sin deformación.</td></tr>
+          <tr><td><strong>Móvil</strong><br>320–767 px</td><td>Una columna; menú expandible con nombre y estado accesibles; botones amplios; campos a ancho completo; contenido prioritario primero.</td><td>320 px y 375/390 px; zoom; teclado virtual; mensajes de error visibles; ausencia de scroll horizontal; objetivos táctiles separados.</td></tr>
+        </tbody>
+      </table>
+      <p>Además se prueban contenido largo, traducciones, imágenes ausentes, conexión lenta, preferencia de movimiento reducido y navegación con lector de pantalla. Las categorías son referencias, no una lista cerrada de dispositivos.</p>
+    </div>
+
+    <h3>E. Investigación comparativa de frameworks CSS</h3>
+    <p class="pregunta">8. ¿Qué es un framework CSS y cuándo conviene utilizarlo?</p>
+    <div class="respuesta">
+      <p>Es un conjunto reutilizable de estilos, convenciones y, en algunos casos, componentes interactivos que acelera la construcción de interfaces. Conviene cuando el equipo necesita consistencia, prototipos rápidos, cuadrícula probada y componentes comunes. No reemplaza HTML semántico, decisiones de accesibilidad ni CSS: debe evaluarse el costo de descarga, la personalización, la dependencia y el conocimiento del equipo.</p>
+    </div>
+
+    <h4>Bootstrap</h4>
+    <div class="compacto">
+      <p><strong>Qué es:</strong> framework de enfoque Mobile First con sistema de cuadrícula, utilidades, estilos base y componentes. Algunos componentes interactivos requieren su JavaScript.</p>
+      <p><strong>Usos:</strong> paneles administrativos, sitios corporativos, prototipos y aplicaciones con patrones convencionales.</p>
+      <p><strong>Características:</strong> contenedores, filas y 12 columnas; breakpoints; Sass y variables CSS; utilidades; componentes accesibles como punto de partida.</p>
+      <p><strong>Ventajas:</strong> documentación amplia, desarrollo veloz, consistencia, ecosistema conocido y componentes listos.</p>
+      <p><strong>Desventajas:</strong> apariencia reconocible si no se personaliza, CSS/JS no utilizado si se importa completo y marcado con varias clases.</p>
+      <p><strong>Componentes:</strong> navbar, cards, modal, accordion, alerts, forms, buttons, carousel, offcanvas y dropdown.</p>
+      <p><strong>Grid:</strong> <code>.container</code> → <code>.row</code> → <code>.col-*</code>; por ejemplo <code>.col-12 .col-md-6 .col-lg-4</code>.</p>
+      <p><strong>Documentación oficial:</strong> <a href="https://getbootstrap.com/docs/">https://getbootstrap.com/docs/</a></p>
+    </div>
+
+    <h4>Tailwind CSS</h4>
+    <div class="compacto">
+      <p><strong>Qué es:</strong> framework “utility-first” que ofrece clases pequeñas para componer diseños directamente en el marcado y genera CSS según las clases utilizadas.</p>
+      <p><strong>Usos:</strong> sistemas de diseño personalizados, aplicaciones de producto y equipos que prefieren composición por utilidades.</p>
+      <p><strong>Características:</strong> utilidades responsivas y de estado, tokens de diseño, configuración y optimización del resultado.</p>
+      <p><strong>Ventajas:</strong> gran control visual, consistencia por escala, poca necesidad de inventar nombres de clases y CSS de producción ajustado al uso con una configuración correcta.</p>
+      <p><strong>Desventajas:</strong> HTML con cadenas extensas de clases, curva de aprendizaje, necesidad de abstraer patrones repetidos y pocos componentes completos en el núcleo.</p>
+      <p><strong>Componentes:</strong> el núcleo aporta utilidades, no un catálogo equivalente a Bootstrap; pueden construirse componentes o utilizar bibliotecas del ecosistema.</p>
+      <p><strong>Grid:</strong> utiliza utilidades CSS Grid/Flexbox, como <code>grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4</code>.</p>
+      <p><strong>Documentación oficial:</strong> <a href="https://tailwindcss.com/docs">https://tailwindcss.com/docs</a></p>
+    </div>
+
+    <h4>Foundation</h4>
+    <div class="compacto">
+      <p><strong>Qué es:</strong> familia de frameworks responsivos de ZURB; Foundation for Sites está orientado a sitios y aplicaciones personalizables.</p>
+      <p><strong>Usos:</strong> productos que requieren una base flexible, prototipos responsivos y proyectos que desean configurar componentes mediante Sass.</p>
+      <p><strong>Características:</strong> cuadrícula XY Grid, utilidades responsivas, componentes de navegación, formularios y complementos JavaScript.</p>
+      <p><strong>Ventajas:</strong> alto nivel de personalización, cuadrícula potente, enfoque responsivo y conjunto amplio de componentes.</p>
+      <p><strong>Desventajas:</strong> comunidad y disponibilidad de ejemplos menores que Bootstrap, curva de configuración y dependencia de JavaScript en widgets interactivos.</p>
+      <p><strong>Componentes:</strong> accordion, callout, dropdown, menu, off-canvas, orbit, reveal, tabs, tooltip y formularios.</p>
+      <p><strong>Grid:</strong> XY Grid emplea contenedores <code>grid-x</code>/<code>grid-y</code> e hijos <code>cell</code> con tamaños por breakpoint.</p>
+      <p><strong>Documentación oficial:</strong> <a href="https://get.foundation/sites/docs/">https://get.foundation/sites/docs/</a></p>
+    </div>
+
+    <p class="pregunta">9. Tabla comparativa y elección para el proyecto.</p>
+    <table aria-label="Comparación de Bootstrap Tailwind y Foundation">
+      <thead><tr><th>Criterio</th><th>Bootstrap</th><th>Tailwind CSS</th><th>Foundation</th></tr></thead>
+      <tbody>
+        <tr><td>Enfoque</td><td>Componentes + utilidades</td><td>Utilidades para composición</td><td>Base configurable + componentes</td></tr>
+        <tr><td>Inicio rápido</td><td>Muy alto</td><td>Alto, con proceso de construcción recomendado</td><td>Medio</td></tr>
+        <tr><td>Personalización visual</td><td>Variables CSS/Sass y temas</td><td>Muy alta mediante tokens y utilidades</td><td>Alta mediante Sass y configuración</td></tr>
+        <tr><td>Componentes incluidos</td><td>Amplio catálogo</td><td>No es el objetivo principal del núcleo</td><td>Catálogo amplio</td></tr>
+        <tr><td>Cuadrícula</td><td>12 columnas con breakpoints</td><td>Utilidades nativas de Grid/Flex</td><td>XY Grid</td></tr>
+        <tr><td>JavaScript propio</td><td>Para componentes interactivos</td><td>No requerido por las utilidades base</td><td>Para componentes interactivos</td></tr>
+        <tr><td>Riesgo principal</td><td>Diseño genérico/peso no usado</td><td>Marcado cargado de clases</td><td>Menor ecosistema y aprendizaje</td></tr>
+        <tr><td>Mejor escenario</td><td>Sitio corporativo rápido y consistente</td><td>Producto con diseño muy personalizado</td><td>Proyecto configurable con cuadrícula flexible</td></tr>
+      </tbody>
+    </table>
+
+    <div class="conclusion">
+      <strong>Elección razonada.</strong> Para el proyecto académico de una empresa tecnológica se elige <strong>Bootstrap</strong> porque permite construir rápidamente una navegación responsiva, tarjetas de servicios, botones y formularios consistentes. La cuadrícula reduce el CSS de distribución y sus clases por breakpoint facilitan demostrar Mobile First. La elección no elimina la responsabilidad de personalizar la identidad, cargar solo lo necesario, escribir HTML semántico y probar accesibilidad.
+    </div>
+  </section>
+
+  <section class="seccion" id="reflexion" aria-labelledby="h-reflexion">
+    <h2 id="h-reflexion">Reflexión final: 15 respuestas sobre el proyecto</h2>
+    <p>Las respuestas corresponden al proyecto <strong>Nexo Digital</strong>, una página para una empresa de tecnología desarrollada con HTML5, CSS3, JavaScript y Bootstrap.</p>
+
+    <p class="pregunta">1. ¿Cuál es la función de HTML5 dentro de una página web?</p>
+    <div class="respuesta"><p>HTML5 organiza y describe el contenido de la página: títulos, párrafos, imágenes, enlaces, listas, secciones y formularios. En Nexo Digital funciona como el esqueleto semántico sobre el cual se aplican los estilos y las interacciones.</p></div>
+
+    <p class="pregunta">2. ¿Qué relación existe entre HTML y el DOM?</p>
+    <div class="respuesta"><p>HTML es el código fuente que describe el documento, mientras que el DOM es el árbol de objetos que el navegador construye al interpretarlo. JavaScript consulta y modifica ese árbol para actualizar la interfaz sin cambiar directamente el archivo guardado.</p></div>
+
+    <p class="pregunta">3. ¿Por qué es importante utilizar etiquetas semánticas?</p>
+    <div class="respuesta"><p>Porque comunican la función de cada región. Elementos como <code>header</code>, <code>nav</code>, <code>main</code>, <code>article</code>, <code>aside</code> y <code>footer</code> facilitan el mantenimiento, ayudan a buscadores y permiten que las tecnologías de asistencia comprendan mejor la estructura.</p></div>
+
+    <p class="pregunta">4. ¿Qué función cumplen los metadatos?</p>
+    <div class="respuesta"><p>Describen el documento para el navegador y otros servicios. En el proyecto definen la codificación UTF-8, el ancho adaptable mediante viewport, la descripción, el autor, el color del navegador y el título mostrado en la pestaña.</p></div>
+
+    <p class="pregunta">5. ¿Qué ventajas ofrecen los formularios HTML5?</p>
+    <div class="respuesta"><p>Ofrecen controles adecuados para correo, teléfono y fecha, además de validaciones declarativas como <code>required</code>, <code>minlength</code>, <code>maxlength</code> y <code>pattern</code>. Esto proporciona retroalimentación inmediata y reduce código, aunque un sistema real también debe validar en el servidor.</p></div>
+
+    <p class="pregunta">6. ¿Cuál es la función de CSS?</p>
+    <div class="respuesta"><p>CSS controla la presentación visual: colores, tipografías, tamaños, espacios, bordes, fondos, distribución y adaptación. En Nexo Digital crea la identidad gráfica y complementa los componentes de Bootstrap.</p></div>
+
+    <p class="pregunta">7. ¿Qué diferencia existe entre HTML y CSS?</p>
+    <div class="respuesta"><p>HTML estructura y da significado al contenido; CSS define cómo se presenta. Separarlos permite cambiar el diseño sin perder la organización semántica y facilita reutilizar estilos en distintos elementos.</p></div>
+
+    <p class="pregunta">8. ¿Qué ventajas ofrece CSS3?</p>
+    <div class="respuesta"><p>CSS moderno aporta Flexbox, Grid, media queries, variables, gradientes, sombras, transiciones, transformaciones y funciones fluidas. Estas herramientas permiten interfaces atractivas y adaptables sin depender de imágenes o scripts para cada efecto.</p></div>
+
+    <p class="pregunta">9. ¿Qué significa diseño responsivo?</p>
+    <div class="respuesta"><p>Significa que el contenido y la distribución se ajustan al espacio disponible sin perder legibilidad ni provocar desplazamiento horizontal innecesario. El mismo sitio puede utilizarse correctamente en computadora, tableta y teléfono.</p></div>
+
+    <p class="pregunta">10. ¿Qué es Mobile First?</p>
+    <div class="respuesta"><p>Es una estrategia que diseña primero la experiencia para pantallas estrechas y después agrega mejoras para espacios mayores. Ayuda a priorizar contenido, rendimiento y controles táctiles desde el comienzo.</p></div>
+
+    <p class="pregunta">11. ¿Qué función cumplen las media queries?</p>
+    <div class="respuesta"><p>Aplican reglas CSS cuando se cumple una condición, como un ancho máximo, orientación o preferencia de movimiento. El proyecto las utiliza para reorganizar encabezados, estadísticas, botones, tarjetas y pie de página en pantallas reducidas.</p></div>
+
+    <p class="pregunta">12. ¿Qué ventajas tiene utilizar un framework CSS?</p>
+    <div class="respuesta"><p>Acelera el desarrollo con una cuadrícula, utilidades y componentes consistentes ya preparados. También ofrece documentación y patrones probados, pero todavía es necesario personalizar, escribir HTML semántico y verificar accesibilidad.</p></div>
+
+    <p class="pregunta">13. ¿Qué framework utilizaste en tu proyecto?</p>
+    <div class="respuesta"><p>Utilicé <strong>Bootstrap 5.3.8</strong>. Se aplicó en la barra de navegación, sistema de columnas, tarjetas de servicios, botones, formulario y utilidades responsivas. Los comentarios del código identifican los elementos pertenecientes al framework.</p></div>
+
+    <p class="pregunta">14. ¿Qué problemas encontraste al adaptar tu página a diferentes tamaños de pantalla?</p>
+    <div class="respuesta"><p>Los principales retos fueron evitar desbordamientos, mantener una jerarquía visual clara, convertir el menú horizontal en uno colapsable, apilar campos y botones, ajustar las imágenes y conservar controles táctiles cómodos. Se resolvieron con contenedores fluidos, el grid de Bootstrap, Flexbox y media queries.</p></div>
+
+    <p class="pregunta">15. ¿Qué mejorarías de tu proyecto?</p>
+    <div class="respuesta"><p>En una siguiente versión conectaría el formulario con un servicio seguro, añadiría una política de privacidad real, optimizaría aún más los recursos, realizaría pruebas con usuarios y automatizaría auditorías de accesibilidad, HTML y rendimiento.</p></div>
+
+    <div class="conclusion">
+      <strong>Conclusión general.</strong> La actividad confirmó que HTML5, CSS3, usabilidad, accesibilidad y diseño responsivo funcionan como un solo sistema. Bootstrap acelera la construcción, mientras que las decisiones sobre semántica, contenido y experiencia continúan siendo responsabilidad del desarrollador.
+    </div>
+  </section>
+
+  <section class="seccion" id="bibliografia" aria-labelledby="h-bibliografia">
+    <h2 id="h-bibliografia">Bibliografía</h2>
+    <ol>
+      <li>MDN Web Docs. “HTML: Lenguaje de etiquetas de hipertexto”. <a href="https://developer.mozilla.org/es/docs/Web/HTML">https://developer.mozilla.org/es/docs/Web/HTML</a></li>
+      <li>MDN Web Docs. “Introducción al DOM”. <a href="https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction">https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction</a></li>
+      <li>MDN Web Docs. “CSS”. <a href="https://developer.mozilla.org/es/docs/Web/CSS">https://developer.mozilla.org/es/docs/Web/CSS</a></li>
+      <li>MDN Web Docs. “Diseño web responsivo”. <a href="https://developer.mozilla.org/es/docs/Learn_web_development/Core/CSS_layout/Responsive_Design">https://developer.mozilla.org/es/docs/Learn_web_development/Core/CSS_layout/Responsive_Design</a></li>
+      <li>WHATWG. “HTML Living Standard”. <a href="https://html.spec.whatwg.org/">https://html.spec.whatwg.org/</a></li>
+      <li>World Wide Web Consortium (W3C), Web Accessibility Initiative. “WCAG 2 Overview”. <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">https://www.w3.org/WAI/standards-guidelines/wcag/</a></li>
+      <li>World Wide Web Consortium (W3C). “CSS Snapshot”. <a href="https://www.w3.org/TR/CSS/">https://www.w3.org/TR/CSS/</a></li>
+      <li>Bootstrap. “Documentation”. <a href="https://getbootstrap.com/docs/">https://getbootstrap.com/docs/</a></li>
+      <li>Tailwind CSS. “Documentation”. <a href="https://tailwindcss.com/docs">https://tailwindcss.com/docs</a></li>
+      <li>Foundation. “Foundation for Sites Documentation”. <a href="https://get.foundation/sites/docs/">https://get.foundation/sites/docs/</a></li>
+    </ol>
+    <div class="nota">
+      <strong>Nota de elaboración:</strong> el contenido consultado en las fuentes oficiales fue comprendido, sintetizado y parafraseado con redacción original para fines académicos; no se reprodujeron fragmentos extensos de las fuentes. Los ejemplos de código y el análisis fueron elaborados específicamente para esta actividad.
+    </div>
+
+    <h3>Lista final de verificación</h3>
+    <ul class="checklist">
+      <li>✓ HTML5 y estructura mínima</li>
+      <li>✓ DOM con diagrama</li>
+      <li>✓ Etiquetas estructurales</li>
+      <li>✓ Presentación con ejemplos</li>
+      <li>✓ Metadatos</li>
+      <li>✓ Formulario y validación</li>
+      <li>✓ Usabilidad y accesibilidad</li>
+      <li>✓ 14 reglas prácticas</li>
+      <li>✓ Análisis: 5 positivos y 5 mejoras</li>
+      <li>✓ CSS y CSS3</li>
+      <li>✓ Anatomía de regla CSS</li>
+      <li>✓ Selectores y ejemplos</li>
+      <li>✓ Propiedades y caja</li>
+      <li>✓ Flexbox</li>
+      <li>✓ Responsive y Mobile First</li>
+      <li>✓ Media queries y pruebas</li>
+      <li>✓ Tres frameworks y tabla</li>
+      <li>✓ 15 reflexiones</li>
+      <li>✓ Bibliografía oficial</li>
+    </ul>
+
+    <p class="firma">Joel Humberto Solis Ramírez · Matrícula 27437</p>
+  </section>
+</main>
+</body>
+</html>
